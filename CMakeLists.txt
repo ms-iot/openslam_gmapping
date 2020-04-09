@@ -14,9 +14,15 @@ catkin_package(
   LIBRARIES utils sensor_base sensor_odometry sensor_range log configfile scanmatcher gridfastslam
 )
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+add_definitions("/D_CRT_SECURE_NO_WARNINGS")
+
 ###########
 ## Build ##
 ###########
+
+include(GenerateExportHeader)
+
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
@@ -49,6 +55,7 @@ add_library(sensor_base
 add_library(sensor_odometry
   sensor/sensor_odometry/odometrysensor.cpp
   sensor/sensor_odometry/odometryreading.cpp)
+
 target_link_libraries(sensor_odometry
   sensor_base)
 
@@ -59,6 +66,7 @@ target_link_libraries(sensor_odometry
 add_library(sensor_range
   sensor/sensor_range/rangesensor.cpp
   sensor/sensor_range/rangereading.cpp)
+
 target_link_libraries(sensor_range
   sensor_base)
 
@@ -72,6 +80,7 @@ add_library(log
   log/carmenconfiguration.cpp
   log/sensorlog.cpp
   log/sensorstream.cpp)
+
 add_executable(log_test
   log/log_test.cpp)
 add_executable(log_plot
@@ -92,6 +101,7 @@ target_link_libraries(log
 # APPS= configfile_test 
 add_library(configfile
   configfile/configfile.cpp)
+
 add_executable(configfile_test
   configfile/configfile_test.cpp)
 target_link_libraries(configfile_test configfile)
@@ -106,6 +116,7 @@ add_library(scanmatcher
   scanmatcher/scanmatcher.cpp
   scanmatcher/scanmatcherprocessor.cpp
   scanmatcher/eig3.cpp)
+
 add_executable(scanmatch_test
   scanmatcher/scanmatch_test.cpp)
 add_executable(icptest
@@ -125,6 +136,7 @@ add_library(gridfastslam
   gridfastslam/motionmodel.cpp
   gridfastslam/gridslamprocessor.cpp
   gridfastslam/gfsreader.cpp)
+
 add_executable(gfs2log
   gridfastslam/gfs2log.cpp)
 add_executable(gfs2rec
