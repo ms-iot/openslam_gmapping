@@ -3,7 +3,11 @@
 #include <iostream>
 #include <gmapping/log/carmenconfiguration.h>
 #include <gmapping/log/sensorlog.h>
+
+#ifndef _MSC_VER
 #include <unistd.h>
+#endif
+
 #include <gmapping/utils/commandline.h>
 #include <gmapping/log/sensorstream.h>
 #include "gmapping/scanmatcher/scanmatcherprocessor.h"
@@ -11,7 +15,7 @@
 using namespace std;
 using namespace GMapping;
 
-#define DEBUG cout << __PRETTY_FUNCTION__
+#define DEBUG cout << __func__
 #define MAX_STRING_LENGTH 1024
 
 int main(int argc, const char * const * argv){
