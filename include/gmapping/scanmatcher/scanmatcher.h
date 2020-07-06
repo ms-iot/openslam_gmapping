@@ -7,6 +7,8 @@
 #include <gmapping/utils/stat.h>
 #include <iostream>
 #include <gmapping/utils/gvalues.h>
+#include "scanmatcher_export.h"
+
 #define LASER_MAXBEAMS 2048
 
 namespace GMapping {
@@ -37,7 +39,7 @@ class ScanMatcher{
 		inline const double* laserAngles() const { return m_laserAngles; }
 		inline unsigned int laserBeams() const { return m_laserBeams; }
 		
-		static const double nullLikelihood;
+		static SCANMATCHER_EXPORT const double nullLikelihood;
 	protected:
 		//state of the matcher
 		bool m_activeAreaComputed;

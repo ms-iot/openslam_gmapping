@@ -56,7 +56,7 @@ double sampleGaussian(double sigma, unsigned long int S) {
 	if (S!=0)
         {
 		//gsl_rng_set(r, S);
-                srand48(S);
+                std::srand(S);
         }
 	if (sigma==0)
 		return 0;
