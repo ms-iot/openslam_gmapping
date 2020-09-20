@@ -173,7 +173,7 @@ install(TARGETS autoptr_test log_test log_plot scanstudio2carmen rdk2carmen conf
 
 ## Mark cpp header files for installation
 install(DIRECTORY include/gmapping
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
   FILES_MATCHING PATTERN "*.h*"
   PATTERN ".svn" EXCLUDE
 )
@@ -197,7 +197,7 @@ generate_export_header(gridfastslam
 
 install(DIRECTORY
   ${EXPORT_HEADER_DIR}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
 
 #############
 ## Testing ##
