@@ -8,7 +8,7 @@
 
 #ifdef _MSC_VER
 namespace std {
-	extern template class __declspec(dllexport) vector<double>;
+	template class __declspec(dllexport) vector<double>;
 };
 #endif
 
