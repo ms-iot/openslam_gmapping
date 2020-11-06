@@ -2,6 +2,7 @@
 #ifndef SCANMATCHER_EXPORT_H
 #define SCANMATCHER_EXPORT_H
 
+#if defined _WIN32 || defined __CYGWIN__
 #ifdef SCANMATCHER_STATIC_DEFINE
 #  define SCANMATCHER_EXPORT
 #  define SCANMATCHER_NO_EXPORT
@@ -38,5 +39,8 @@
 #    define SCANMATCHER_NO_DEPRECATED
 #  endif
 #endif
+#else
+#define SCANMATCHER_EXPORT
 
+#endif
 #endif /* SCANMATCHER_EXPORT_H */
